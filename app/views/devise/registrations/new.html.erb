@@ -1,0 +1,48 @@
+<div class="container-welcome">
+  <div class="log-box">
+    <div id="box-header">
+      <div id="title" class="grid">
+        <%= image_tag "connected-title.png" %>
+      </div>
+      <div id="member-link" class="grid">
+        <p>Already a member? &nbsp; <span class="log-button" id="top-button">LOG IN</span></p>
+      </div>
+    </div> <!-- box-header -->
+    <div class="box-body">
+      <div id="box-left" class="column grid">
+        <h3>All Contacts, One Place</h3>
+        <p>Finally, you can sync and access all of your contacts at one central location.  Whether you misplaced your phone or forgot your email password, you'll always be connected.</p>
+        <h5 id="join-button">Join</h5>
+      </div>
+      <div id="box-right" class="column grid">
+        <%= image_tag "connected-logo.png" %>
+
+        <h3>Log In To Your Account</h3>
+
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.email_field :email, :autofocus => true, id: "email-field", maxlength: 80, size: 30, placeholder: "Your email" %> <br>
+
+          <%= f.password_field :password, id: "password-field", maxlength: 80, size: 30, placeholder: "Your password"  %> <br>
+          <%= f.submit "Sign in", class: "sign-in1" %>
+        <% end %>
+      </div>
+    </div> <!-- box-body -->
+    <div class="box-join">
+      <h3>ALL OF YOUR CONTACTS, ONE CONVENIENT LOCATION</h3>
+      <div id="sign-up-form" class="grid">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.text_field :firstname, id:"fname-field", maxlength: 80, placeholder: "First Name" %><br>
+          <%= f.text_field :lastname, id:"lname-field", maxlength: 100, placeholder: "Last Name" %><br>
+          <%= f.email_field :email, :autofocus => true, id: "email-address", maxlength: 80, placeholder: "Email Address" %>
+          <%= f.password_field :password, id: "password-field2", maxlength: 100, placeholder: 'Password' %> <br>
+          <%= f.password_field :password_confirmation, id: "reenter-password-field", maxlength: 100, placeholder: 'Re-enter password' %><br>
+        </div>
+        <div id="ready-button" class="grid">
+          <%= f.submit "Let Me In", class: "ready-button" %>
+        </div>
+      <% end %>
+    </div> <!-- box-join -->
+  </div> <!-- log-box -->
+</div> <!-- container -->
+
