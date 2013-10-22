@@ -334,6 +334,7 @@ a:hover, a:visited {
 }
 
 #left-icon, #right-icon {
+  position: relative;
   width: 50%;
   float: left;
   text-align: center;
@@ -347,6 +348,10 @@ a:hover, a:visited {
 
 #save-icon, #cancel-icon {
   width: 20%;
+}
+
+#real-save {
+  display:none;
 }
 
 #left-icon:hover, #right-icon:hover, #top-icon:hover {

@@ -49,7 +49,6 @@ angular.module('addressApp')
         Contact.save($scope.addedContact, function(jsonContact) {
           $scope.adding = false;
           $scope.contacts.push(jsonContact);
-
         });
       }
     }
@@ -85,6 +84,10 @@ angular.module('addressApp')
 
     $scope.uploadPicture = function() {
       $('#hiddenupload').trigger('click');
+    }
+
+    $scope.newSave = function() {
+      $('#real-save').trigger('click');
     }
 
   });

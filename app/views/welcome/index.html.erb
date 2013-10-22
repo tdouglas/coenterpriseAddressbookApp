@@ -39,8 +39,8 @@
               </span>
             </h1>
             <h1 ng-show="adding">
-              <input type="text" class="name-fields" maxlength="18" size="12" ng-model="addedContact.firstname" placeholder="First name" required>
-              <input type="text" class="name-fields"  maxlength="18" size="12" ng-model="addedContact.lastname" placeholder="Last name" required>
+              <input type="text" class="name-fields" maxlength="18" size="12"  placeholder="First name" ng-model="addedContact.firstname" required />
+              <input type="text" class="name-fields"  maxlength="18" size="12"  placeholder="Last name" ng-model="addedContact.lastname" required />
               <!-- fields are not resetting they show previous inputs -->
             </h1>
           </div>
@@ -52,7 +52,7 @@
             <dt>Phone</dt>
             <dd ng-hide="adding">{{selectedContact.phone}}</dd>
             <dd ng-show="adding">
-              <input type="text" class="phone-field" maxlength="12" size="15" ng-model="addedContact.phone" placeholder="123-456-7890" required>
+              <input type="text" class="phone-field" maxlength="12" size="15" placeholder="123-456-7890" ng-model="addedContact.phone" required />
               <!-- required is not working!!! -->
           </dl>
 
@@ -89,14 +89,14 @@
 
           <div ng-show="adding" class="bottom" id="other-icons">
             <div ng-click="saveContact()" id="left-icon">
-              <img id="save-icon" src="assets/save.png">
+              <img id="save-icon" src="assets/save.png" ng-click="newSave()">
             </div>
             <div ng-click="cancel()" id="right-icon">
               <img id="cancel-icon" src="assets/delete.png">
             </div>
           </div>
-            <input type="submit" ng-show="adding" value="Save" >
-            <button ng-show="adding" ng-click="cancel()">Cancel</button>
+            <input id="real-save" type="submit" ng-show="adding" value="Save" style="display:none">
+            <button ng-show="adding" ng-click="cancel()" style="display:none">Cancel</button>
         </form>
       </div>
 
