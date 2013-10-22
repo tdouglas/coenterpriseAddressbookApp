@@ -350,10 +350,6 @@ a:hover, a:visited {
   width: 20%;
 }
 
-#real-save {
-  display:none;
-}
-
 #left-icon:hover, #right-icon:hover, #top-icon:hover {
   opacity: 0.9;
   cursor: pointer;
