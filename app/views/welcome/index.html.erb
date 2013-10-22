@@ -19,7 +19,7 @@
         <div>
            <button type="button" class="btn btn-default btn-lg btn-block" ng-repeat="contact in contacts" ng-click="select(contact)">
              {{contact.firstname}} {{contact.lastname}}
-             <a href="#" class="btn" ng-click="deleteContact(contact)">X</a>
+             <span class="btn x" ng-click="deleteContact(contact)"></span>
            </button>
         </div>
 
@@ -71,8 +71,8 @@
                 <input type="text" id="address-field1" maxlength="30" size="20" placeholder="123 Main St">
                 <input type="text" id="address-field2" maxlength="10" size="5" placeholder="Apt 1B"></br></br>
                 <input type="text" id="address-field3" maxlength="30" size="20" placeholder="City">
-                <input type="text" id="address-field4" maxlength="30" size="5" placeholder="State">
-                <input type="text" id="address-field5" maxlength="30" size="5" placeholder="03283">
+                <input type="text" id="address-field4" maxlength="2" size="5" placeholder="State">
+                <input type="text" id="address-field5" maxlength="5" size="5" placeholder="03283">
               </address>
           </dl>
 

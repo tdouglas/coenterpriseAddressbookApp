@@ -365,11 +365,13 @@ a:hover, a:visited {
 
 #delete-icon {
   width: 12%;
+  cursor:pointer;
 }
 
 #edit-icon {
   width: 12%;
   margin-right;
+  cursor: pointer;
 }
 
 #contact-icons {
@@ -414,16 +416,48 @@ a:hover, a:visited {
   width: 28%;
 }
 
-
-
-/*
-.btn-block:hover{
-  background-image: url(delete.png);
-  background-position: 100%; Positioning
-  background-repeat: no-repeat;
-  background-size: 20%;
+.x {
+  float: right;
+  height: 22px;
+  width: 20px;
+  position: absolute;
 }
 
+@media screen and (min-width: 992px) {
+
+.x {
+  right: 30px;
+}
+}
+
+@media screen and (max-width: 991px) {
+
+.x {
+  right: 5%;
+}
+}
+
+.btn-block:hover{
+  background-image: url(delete.png);
+  background-position: 100%;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 992px) {
+
+.btn-block:hover{
+  background-size: 20%;
+}
+}
+
+@media screen and (max-width: 991px) {
+
+.btn-block:hover{
+  background-size: 10%;
+}
+}
+
+/*
 .page-header:hover {
   opacity: 0.3;
   background-image: url(edit.png);
@@ -431,4 +465,3 @@ a:hover, a:visited {
   background-repeat: no-repeat;
   background-size: 10%;
 }
-*/
