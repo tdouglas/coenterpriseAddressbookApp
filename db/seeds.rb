@@ -5,9 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Contact.create!(firstname:'John', lastname:'Doe', phone_cell:'202-321-3443', email:'johnnyboy@gmail.com', address:'123 johnny lane ny, ny 10033')
-Contact.create!(firstname:'Sarah', phone_cell:'646-304-1223', email:'sarah@yahoo.com')
-Contact.create!(firstname:'Karen', phone_cell:'860-493-2932')
-Contact.create!(firstname:'Gary', phone_cell:'305-349-3942')
-Contact.create!(firstname:'Sharon', phone_cell:'201-493-2299')
+user = User.create(firstname: 'Bob', lastname: 'Smith', email: 'bsmith@mail.com', password: 'password')
+user.contacts.create!(firstname:'John', lastname:'Doe', phone:'202-321-3443', email:'johnnyboy@gmail.com', street_address:'123 johnny lane', apt_address: '21a', city_address: 'new york', state_address: 'ny', zip_address: '10033')
+user.contacts.create!(firstname:'Sarah', phone:'646-304-1223', email:'sarah@yahoo.com')
+user.contacts.create!(firstname:'Karen', phone:'860-493-2932')
+user.contacts.create!(firstname:'Gary', phone:'305-349-3942')
+user.contacts.create!(firstname:'Sharon', phone:'201-493-2299')

@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts.all
     render json: @contacts
   end
 
@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.new(contact_params)
 
     if @contact.save
       render json: @contact
@@ -30,14 +30,10 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.update(contact_params)
+      render json: @contact
+    else
+      render json: {}
     end
   end
 
@@ -58,8 +54,7 @@ class ContactsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    #TODO: Put all allowed fields
     def contact_params
-      params.require(:contact).permit(:firstname, :lastname, :email)
+      params.require(:contact).permit(:firstname, :lastname, :email, :phone, :street_address, :apt_address, :city_address, :state_address, :zip_address, :picture)
     end
 end

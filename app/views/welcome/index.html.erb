@@ -26,12 +26,16 @@
       </div>
 
       <div class="col-md-8" style="background2:blue;">
+
+        <input type="file" name="picture" style="display:none;" id="hiddenupload"
+          onchange="angular.element(this).scope().sendFile(this.files);">
+
         <form ng-submit="saveContact()">
           <div class="page-header">
             <h1 ng-hide="adding">{{selectedContact.firstname}} {{selectedContact.lastname}}
               <span id="contact-icons">
-                <img id="edit-icon" src="assets/edit.png">
-                <img ng-click="deleteContact(contact)" id="delete-icon" src="assets/delete.png">
+                <img id="edit-icon" src="assets/edit.png" ng-click="editContact(selectedContact)">
+                <img ng-click="deleteContact(selectedContact)" id="delete-icon" src="assets/delete.png">
               </span>
             </h1>
             <h1 ng-show="adding">
@@ -41,14 +45,14 @@
             </h1>
           </div>
           <div id="profile">
-            <img id="profile-pic" src="assets/default_photo.png">
-            <img id="upload-icon" src="assets/upload.png">
+            <img id="profile-pic" ng-src="{{selectedContact.picture}}">
+            <img id="upload-icon" src="assets/upload.png" ng-click="uploadPicture()">
           </div>
           <dl>
             <dt>Phone</dt>
-            <dd ng-hide="adding">{{selectedContact.phone_cell}}</dd>
+            <dd ng-hide="adding">{{selectedContact.phone}}</dd>
             <dd ng-show="adding">
-              <input type="text" class="phone-field" maxlength="12" size="15" ng-model="addedContact.phone_cell" placeholder="123-456-7890" required>
+              <input type="text" class="phone-field" maxlength="12" size="15" ng-model="addedContact.phone" placeholder="123-456-7890" required>
               <!-- required is not working!!! -->
           </dl>
 
@@ -63,16 +67,19 @@
             <dt>Address</dt>
             <dd>
               <address ng-hide="adding">
-                {{selectedContact.address}}
+                {{selectedContact.street_address}} {{selectedContact.apt_address}}
+                {{selectedContact.city_address}}
+                {{selectedContact.state_address}}
+                {{selectedContact.zip_address}}
               </address>
             </dd>
             <dd ng-show="adding">
               <address ng-show="adding">
-                <input type="text" id="address-field1" maxlength="30" size="20" placeholder="123 Main St">
-                <input type="text" id="address-field2" maxlength="10" size="5" placeholder="Apt 1B"></br></br>
-                <input type="text" id="address-field3" maxlength="30" size="20" placeholder="City">
-                <input type="text" id="address-field4" maxlength="2" size="5" placeholder="State">
-                <input type="text" id="address-field5" maxlength="5" size="5" placeholder="03283">
+                <input type="text" id="address-field1" maxlength="30" size="20" placeholder="123 Main St" ng-model="addedContact.street_address">
+                <input type="text" id="address-field2" maxlength="10" size="5" placeholder="Apt 1B" ng-model="addedContact.apt_address"></br></br>
+                <input type="text" id="address-field3" maxlength="30" size="20" placeholder="City" ng-model="addedContact.city_address">
+                <input type="text" id="address-field4" maxlength="30" size="5" placeholder="State" ng-model="addedContact.state_address">
+                <input type="text" id="address-field5" maxlength="30" size="5" placeholder="03283" ng-model="addedContact.zip_address">
               </address>
           </dl>
 

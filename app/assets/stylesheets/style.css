@@ -414,6 +414,8 @@ a:hover, a:visited {
   position: absolute;
   right: 15px;
   width: 28%;
+  max-width: 200px;
+  max-height: 220px;
 }
 
 .x {
@@ -426,7 +428,7 @@ a:hover, a:visited {
 @media screen and (min-width: 992px) {
 
 .x {
-  right: 30px;
+  right: 10%;
 }
 }
 
