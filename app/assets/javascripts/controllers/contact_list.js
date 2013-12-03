@@ -1,7 +1,12 @@
 'use strict';
 
+// accessing the ng-app that we referenced in app.js
 angular.module('addressApp')
   .controller('ContactListCtrl', function($scope, Contact, $http) {
+
+
+    /*<div ng-controller='ContactListCtr'></div>
+    */
     var editing = false;
 
     //initial state of adding an element
@@ -18,26 +23,29 @@ angular.module('addressApp')
       }
     });
 
+    // $scope.$apply();
+
     //method to set the current Contact
     $scope.select = function(contact) {
       $scope.selectedContact = contact;
-    }
+      // $scope.contacts[1] == contact
+    };
 
     $scope.newContact = function() {
       $scope.adding = true;
       $scope.addedContact = {};
-    }
+    };
 
     $scope.cancel = function() {
       $scope.adding = false;
       editing = false;
-    }
+    };
 
     $scope.editContact = function(contact) {
       $scope.adding = true;
       editing = true;
       $scope.addedContact = contact;
-    }
+    };
 
     $scope.saveContact = function() {
       if (editing) {
@@ -51,7 +59,7 @@ angular.module('addressApp')
           $scope.contacts.push(jsonContact);
         });
       }
-    }
+    };
 
     $scope.deleteContact = function(contact) {
 
@@ -64,9 +72,10 @@ angular.module('addressApp')
 
       $scope.contacts.splice(index, 1);
 
-    }
+    };
 
-    $scope.sendFile = function(files) {
+
+$scope.sendFile = function(files) {
       var fd = new FormData();
       //Take the first selected file
       fd.append("contact[picture]", files[0]);
@@ -80,15 +89,15 @@ angular.module('addressApp')
         $scope.selectedContact = updatedContact;
       });
 
-    }
-
+    };
     $scope.uploadPicture = function() {
       $('#hiddenupload').trigger('click');
-    }
+    };
 
     $scope.newSave = function() {
       $('#real-save').trigger('click');
-    }
+      // $('form').submit();
+    };
 
   });
 

@@ -16,6 +16,7 @@
     <div class="row" ng-controller="ContactListCtrl">
       <div class="col-md-4" style="background2:red;">
 
+
         <div>
            <button type="button" class="btn btn-default btn-lg btn-block" ng-repeat="contact in contacts" ng-click="select(contact)">
              {{contact.firstname}} {{contact.lastname}}
@@ -26,6 +27,7 @@
       </div>
 
       <div class="col-md-8" style="background2:blue;">
+
 
         <input type="file" name="picture" style="display:none;" id="hiddenupload"
           onchange="angular.element(this).scope().sendFile(this.files);">
@@ -39,8 +41,8 @@
               </span>
             </h1>
             <h1 ng-show="adding">
-              <input type="text" class="name-fields" maxlength="18" size="12"  placeholder="First name" ng-model="addedContact.firstname" required />
-              <input type="text" class="name-fields"  maxlength="18" size="12"  placeholder="Last name" ng-model="addedContact.lastname" required />
+              <input type="text" class="name-fields" maxlength="18" size="12"  placeholder="First name" ng-model="addedContact.firstname" ng-required />
+              <input type="text" class="name-fields"  maxlength="18" size="12"  placeholder="Last name" ng-model="addedContact.lastname" ng-required />
               <!-- fields are not resetting they show previous inputs -->
             </h1>
           </div>
@@ -51,8 +53,10 @@
           <dl>
             <dt>Phone</dt>
             <dd ng-hide="adding">{{selectedContact.phone}}</dd>
+<!--        <dd ng-hide="adding" ng-bind="selectedContact.phone">Loading... </dd> -->
+
             <dd ng-show="adding">
-              <input type="text" class="phone-field" maxlength="12" size="15" placeholder="123-456-7890" ng-model="addedContact.phone" required />
+              <input type="text" class="phone-field" maxlength="12" size="15" placeholder="123-456-7890" ng-model="addedContact.phone" ng-required />
               <!-- required is not working!!! -->
           </dl>
 

@@ -4,5 +4,7 @@ angular.module('addressApp')
     update: {
       method: 'PUT'
     }
-  })
+  });
 });
+
+//setting resource to Contact and returns contact information from URL
