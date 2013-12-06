@@ -37,6 +37,7 @@ task :tail_logs, :roles => :app do
 end
 
 load "deploy/assets" #precompile assets
+require "rvm/capistrano"
 require 'bundler/capistrano' #bundle install after deploy
 
 ###################
