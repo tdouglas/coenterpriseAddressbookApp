@@ -402,7 +402,7 @@ a:hover, a:visited {
 }
 
 @-webkit-keyframes slideUp {
-     {
+    from {
     -webkit-transform: translate(0);
     }
     to {
