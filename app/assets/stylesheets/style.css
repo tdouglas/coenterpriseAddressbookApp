@@ -372,6 +372,7 @@ a:hover, a:visited {
 #edit-icon {
   width: 12%;
   cursor: pointer;
+  margin-right;
 }
 
 #contact-icons {
@@ -466,4 +467,4 @@ a:hover, a:visited {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 10%;
-}
+} */
