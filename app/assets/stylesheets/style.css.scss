@@ -467,3 +467,8 @@ a:hover, a:visited {
   background-repeat: no-repeat;
   background-size: 10%;
 } */
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
