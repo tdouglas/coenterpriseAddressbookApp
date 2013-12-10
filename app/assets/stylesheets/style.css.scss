@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(hp.jpg);
+  background-image: asset-url("hp.jpg");
   min-height:100%;
   background-size:cover;
   background-repeat: no-repeat;
@@ -440,7 +440,7 @@ a:hover, a:visited {
 }
 
 .btn-block:hover{
-  background-image: url(delete.png);
+  background-image: asset-url("delete.png");
   background-position: 100%;
   background-repeat: no-repeat;
 }

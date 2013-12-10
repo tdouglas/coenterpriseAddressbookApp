@@ -1,7 +1,7 @@
 <header class="strip header">
   <div class="header">
     <div class="header-title grid">
-      <img src="assets/connected-title.png">
+      <%= image_tag "connected-title.png" %>
     </div>
     <div class="welcome-name grid">
       <p>Welcome, <span id="greeting-name"><%=  current_user.firstname.capitalize %></span> </p>
@@ -12,7 +12,7 @@
   </div>
 </header>
 
-<div class="container">
+<div class="container" ng-cloak>
     <div class="row" ng-controller="ContactListCtrl">
       <div class="col-md-4" style="background2:red;">
 
@@ -36,8 +36,8 @@
           <div class="page-header">
             <h1 ng-hide="adding">{{selectedContact.firstname}} {{selectedContact.lastname}}
               <span id="contact-icons">
-                <img id="edit-icon" src="assets/edit.png" ng-click="editContact(selectedContact)">
-                <img ng-click="deleteContact(selectedContact)" id="delete-icon" src="assets/delete.png">
+                <%= image_tag "edit.png", id: "edit-icon", "ng-click" => "editContact(selectedContact)" %>
+                <%= image_tag "delete.png", id: "delete-icon", "ng-click" => "deleteContact(selectedContact)" %>
               </span>
             </h1>
             <h1 ng-show="adding">
@@ -48,7 +48,7 @@
           </div>
           <div id="profile">
             <img id="profile-pic" ng-src="{{selectedContact.picture}}">
-            <img id="upload-icon" src="assets/upload.png" ng-click="uploadPicture()">
+            <%= image_tag "upload.png", id: "upload-icon", "ng-click" => "uploadPicture()" %>
           </div>
           <dl>
             <dt>Phone</dt>
@@ -88,15 +88,15 @@
           </dl>
 
           <div ng-hide="adding" ng-click="newContact()" class="bottom" id="top-icon">
-            <img id="add-icon" src="assets/add.png">
+            <%= image_tag "add.png", id: "add-icon" %>
           </div>
 
           <div ng-show="adding" class="bottom" id="other-icons">
             <div ng-click="saveContact()" id="left-icon">
-              <img id="save-icon" src="assets/save.png" ng-click="newSave()">
+              <%= image_tag "save.png", id: "save-icon", "ng-click" => "newSave()" %>
             </div>
             <div ng-click="cancel()" id="right-icon">
-              <img id="cancel-icon" src="assets/delete.png">
+              <%= image_tag "delete.png", id: "cancel-icon" %>
             </div>
           </div>
             <input id="real-save" type="submit" ng-show="adding" value="Save">
